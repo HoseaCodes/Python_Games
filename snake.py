@@ -1,11 +1,12 @@
 from turtle import Turtle
 
-x_position = [0, -20, -40]
+STARTING_POSITION = [(0, 0), (-20, 0), (-40, 0)]
 move_distance = 20
 up = 90
 down = 270
 left = 180
 right = 0
+
 
 class Snake:
 
@@ -15,14 +16,14 @@ class Snake:
         self.head = self.snake_body[0]
 
     def create_snake(self):
-        for index in range(0, 3):
+        for index in STARTING_POSITION:
             self.grow(index)
 
     def grow(self, index):
         snake = Turtle(shape="square")
         snake.penup()
         snake.color("white")
-        snake.goto(x=x_position[index], y=0)
+        snake.goto(index)
         self.snake_body.append(snake)
 
     def extend(self):
